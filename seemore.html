@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./style.css">
 
     <style>
-        /* Masquer le corps initialement pour éviter le flash de police (FOUT) */
         body {
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
@@ -25,12 +24,10 @@
         }
     </style>
     <script>
-        // Révéler la page une fois que les polices sont chargées
         document.fonts.ready.then(function () {
             document.body.classList.add('fonts-loaded');
         });
 
-        // Fallback au cas où le chargement des polices échouerait
         setTimeout(function () {
             document.body.classList.add('fonts-loaded');
         }, 3000);
@@ -45,7 +42,7 @@
 
             <div class="w-full top-0 absolute  z-30 pointer-events-none h-full">
 
-                <div class="h-screen flex  relative  overflow-hidden-hidden   md:p-8 jsutify-end items-end w-full">
+                <div class="h-screen flex  relative  overflow-hidden   md:p-8 justify-end items-end w-full">
 
 
                     <h2
@@ -410,11 +407,11 @@
                                         Learn the vocabulary of GenAI and dive into the Transformer architecture—the engine behind modern LLMs—focusing on attention mechanisms and encoder-decoder setups.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#foundations" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#foundations" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800" alt="AI introduction" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800" alt="AI introduction" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -429,11 +426,11 @@
                                         Interact with state-of-the-art models via OpenAI, Anthropic, and Google APIs. Explore open-source alternatives on HuggingFace and learn about tokenization and model parameters.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#llms" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#llms" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="LLM Platforms" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="LLM Platforms" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -448,11 +445,11 @@
                                         Learn to craft effective prompts using techniques like Chain-of-Thought and Few-shot prompting. Understand the context window and how to manage external data injection.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#prompt-engineering" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#prompt-engineering" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" alt="Prompt Engineering" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" alt="Prompt Engineering" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -467,11 +464,11 @@
                                         Understand how text is converted into dense mathematical vectors. Learn to store and query these vectors efficiently using databases like Pinecone, Chroma, or Milvus.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#embeddings-and-vector-databases" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#embeddings-and-vector-databases" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=800" alt="Embeddings" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=800" alt="Embeddings" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -486,11 +483,11 @@
                                         Build systems that ground LLM responses in private or real-time data. Master retrieval strategies, reranking, and synthetic data generation to improve accuracy.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#rag" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#rag" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800" alt="RAG Systems" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800" alt="RAG Systems" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -505,11 +502,11 @@
                                         Develop autonomous agents that plan, use tools, and interact with external systems. Explore frameworks like LangChain, CrewAI, and AutoGen for multi-agent coordination.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#ai-agents" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#ai-agents" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="AI Agents" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="AI Agents" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -524,11 +521,11 @@
                                         Implement guardrails against prompt injection and bias. Learn adversarial testing and ethical frameworks to ensure AI models are safe, secure, and aligned with human values.
                                     </p>
                                 </div>
-                                <a href="https://roadmap.sh/ai-engineer#ai-safety-and-ethics" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">VOIR PLUS SUR ROADMAP.SH</a>
+                                <a href="https://roadmap.sh/ai-engineer#ai-safety-and-ethics" target="_blank" class="text-[#F03A08] text-xl font-bold border-b-2 border-[#F03A08] w-fit pb-1 hover:opacity-75 transition-opacity">SEE MORE ON ROADMAP.SH</a>
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" alt="AI Safety" class="object-cover w-full h-full  " />
+                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" alt="AI Safety" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>

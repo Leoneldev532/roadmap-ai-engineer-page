@@ -1,13 +1,22 @@
 
 
 if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
 
 window.addEventListener("beforeunload", function () {
-    window.scrollTo(0, 0);
+   window.scrollTo(0, 0);
 });
+
+
+ document.fonts.ready.then(function () {
+            document.body.classList.add('fonts-loaded');
+        });
+
+        setTimeout(function () {
+            document.body.classList.add('fonts-loaded');
+        }, 3000);
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -55,7 +64,10 @@ window.addEventListener("DOMContentLoaded", () => {
    const title1All = gsap.utils.toArray(".title-1");
    const imgScalingHeroContent = gsap.utils.toArray(".image-scaling-hero-content");
    const title2 = document.querySelector(".title-2");
-   const title2Chars = new SplitText(title2, { type: "chars" }).chars;
+   let title2Chars = null;
+   if (title2) {
+      title2Chars = new SplitText(title2, { type: "chars" }).chars;
+   }
 
    let tl = gsap.timeline({});
    let rl = gsap.timeline({});
@@ -64,68 +76,73 @@ window.addEventListener("DOMContentLoaded", () => {
    let il = gsap.timeline({});
    let mm = gsap.matchMedia();
 
-
-
+   const isMobile = window.innerWidth <= 800;
+ 
    const initHeroSectionAnimation = () => {
-
-      if (tl) {
-         destroyTimeline(tl)
-      }
+      if (title1All.length === 0) return;
+      if (tl) destroyTimeline(tl);
 
       tl = gsap.timeline({
-         onComplete: () => {
-            lenis.start();
-         },
-         delay:1 
+         onComplete: () => { lenis.start(); },
+         delay: 1
       });
 
-      title1All.forEach((title, index) => {
+     title1All.forEach((title) => {
          const line1 = title.querySelector(".line-1");
          const line2 = title.querySelector(".line-2");
+         if (!line1 || !line2) return;
 
-         line1Chars = new SplitText(line1, { type: "chars" }).chars;
-         line2Chars = new SplitText(line2, { type: "chars" }).chars;
+         const line1Chars = new SplitText(line1, { type: "chars" }).chars;
+         const line2Chars = new SplitText(line2, { type: "chars" }).chars;
 
          tl.from(title, {
-            clipPath: "inset(20% 0% 20% 0%)",
-            ease: "power2.inOut",
-            transformOrigin: "40% 50%",
-            duration: 1
-         }, "<")
-            .from([line1Chars, line2Chars], {
-               duration: 1,
-               stagger: {
-                  each: 0.02,
-                  from: "random"
-               },
-               ease: "power2",
-               y: (x) => (x + 2) * 400,
-            }, "")
+             clipPath: "inset(20% 0% 20% 0%)",
+             ease: "power2.inOut",
+             transformOrigin: "40% 50%",
+             duration: isMobile ? 0.6 : 1
+         }, "<");
 
-      });
+         if (line1Chars && line2Chars && line1Chars.length > 0 && line2Chars.length > 0) {
+            tl.from([line1Chars, line2Chars], {
+                duration: isMobile ? 0.6 : 1,
+                stagger: { each: isMobile ? 0.01 : 0.02, from: "random" },
+                ease: "power2",
+                y: (x) => (x + 2) * (isMobile ? 200 : 400),
+            }, "");
+         }
+     });
 
+    // Sur mobile, skip l'animation d'image ou la simplifier
+    const imageScalingHero = document.querySelector(".image-scaling-hero");
+    if (isMobile) {
+        if (imageScalingHero) {
+           tl.set(imageScalingHero, { scale: 1, rotate: 0 });
+        }
+        if (imgScalingHeroContent.length > 0) {
+           tl.set(imgScalingHeroContent, { scale: 1 });
+        }
+    } else {
+        if (imageScalingHero) {
+           tl.to(imageScalingHero, {
+               scale: 1, rotate: 0, duration: 0.5,
+           }, "-=1");
+        }
+        if (imgScalingHeroContent.length > 0) {
+           tl.to(imgScalingHeroContent, {
+               scale: 1, duration: 0.4, stagger: 0.2, ease: "power2.out",
+           }, "-=0.8");
+        }
+    }
 
-      tl.to(".image-scaling-hero", {
-         scale: 1,
-         rotate: 0,
-         duration: 0.5,
-      }, "-=1").to(imgScalingHeroContent, {
-         scale: 1,
-         duration: 0.4,
-         stagger: 0.2,
-         ease: "power2.out",
-      }, "-=0.8");
-
-      tl.from(".svg-1", {
-         y: "100%",
-         duration: 0.5,
-         ease: "power2.out",
-      }, "<")
-
-   }
+    if (document.querySelector(".svg-1")) {
+       tl.from(".svg-1", {
+           y: "100%", duration: isMobile ? 0.3 : 0.5, ease: "power2.out",
+       }, "<");
+    }
+};
 
    const animateDescriptioSection = () => {
-
+      if (!title2 || !title2Chars) return;
       if (rl) {
          destroyTimeline(rl)
       }
@@ -156,7 +173,7 @@ window.addEventListener("DOMContentLoaded", () => {
    }
 
    const animateMainSvgPath = () => {
-
+      if (!document.querySelector(".svg-draw")) return;
       il.from(".svg-draw", {
          drawSVG: "0%",
          duration: 0.5,
@@ -217,7 +234,7 @@ window.addEventListener("DOMContentLoaded", () => {
    }
 
 
-    const animatedSvgLastSection = () => {
+   const animatedSvgLastSection = () => {
       mm.add({
          isDesktop: "(min-width: 801px)",
          isMobile: "(max-width: 800px)"
@@ -225,44 +242,50 @@ window.addEventListener("DOMContentLoaded", () => {
          let { isDesktop } = context.conditions;
 
          const lastText = document.querySelector(".last-text");
+         if (!lastText) return;
+
          const textChars = new SplitText(lastText, { type: "words" }).words;
+         if (!textChars) return;
+
          gsap.set(textChars, { autoAlpha: 0, y: "140%" });
 
-      yl = gsap.timeline({
-         scrollTrigger: {
-            trigger: ".last-section",
-            start: "top 50%",
-            end: "+=350",
-            pin: true,
-            scrub: true
-         }
-      })
+         yl = gsap.timeline({
+            scrollTrigger: {
+               trigger: ".last-section",
+               start: "top 50%",
+               end: "+=350",
+               pin: true,
+               scrub: true
+            }
+         })
 
-      MorphSVGPlugin.convertToPath("#svg-animated-start, #svg-animated-end");
-      gsap.set(["#svg-animated-end"], { autoAlpha: 0 });
+         if (!document.querySelector("#svg-animated-start") || !document.querySelector("#svg-animated-end")) return;
 
-      yl.to("#svg-animated-start", {
-        morphSVG: "#svg-animated-end",
-         duration: 1
-      }).to(".svg-animated", {
-         scale:10,
-         ease: "power4.inOut",
-         duration: 3,
-           transformOrigin: "center center", 
-       
-      },"<")
+         MorphSVGPlugin.convertToPath("#svg-animated-start, #svg-animated-end");
+         gsap.set(["#svg-animated-end"], { autoAlpha: 0 });
+
+         yl.to("#svg-animated-start", {
+            morphSVG: "#svg-animated-end",
+            duration: 1
+         }).to(".svg-animated", {
+            scale: 10,
+            ease: "power4.inOut",
+            duration: 3,
+            transformOrigin: "center center",
+
+         }, "<")
 
 
-        yl.to(textChars, {
-   autoAlpha: 1,
-   y: 0,
-   duration: 3,         
-   ease: "sine",         
-   stagger: {
-      each: 0.1,
-      from: "start"
-   }
-}, ">");
+         yl.to(textChars, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 3,
+            ease: "sine",
+            stagger: {
+               each: 0.1,
+               from: "start"
+            }
+         }, ">");
       });
    }
 
@@ -310,15 +333,15 @@ window.addEventListener("DOMContentLoaded", () => {
       });
    };
 
-  
 
-     
+
+
 
    let isTransitioning = false;
 
-      function pageLeave(href) {
-           if (isTransitioning) return;
-           isTransitioning = true;
+   function pageLeave(href) {
+      if (isTransitioning) return;
+      isTransitioning = true;
       lenis.stop();
       const nextPage = document.createElement("iframe");
       nextPage.src = href;
@@ -336,13 +359,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
       nextPage.addEventListener("load", () => {
 
-           nextPage.style.opacity = "1";
-           
+         nextPage.style.opacity = "1";
+
          const tlLeave = gsap.timeline({
             onComplete: () => {
                setTimeout(() => {
-         window.location.href = href;
-      }, 500)
+                  window.location.href = href;
+               }, 500)
             }
          });
 
@@ -378,21 +401,33 @@ window.addEventListener("DOMContentLoaded", () => {
             pageLeave(href);
          });
       });
-   }  
+   }
 
 
-   initHeroSectionAnimation()
-   animateDescriptioSection()
+   if (document.fonts) {
+      document.fonts.ready.then(() => {
+         initHeroSectionAnimation();
+         animateDescriptioSection();
+         animateMainSvgPath();
+         animateOnScrollSvg();
+         animateOnScrollSvgCloud();
+         animateCardOnScroll();
+         animatedSvgLastSection();
+      });
+   } else {
+      // Fallback si document.fonts n'est pas supporté
+      initHeroSectionAnimation();
+      animateDescriptioSection();
+      animateMainSvgPath();
+      animateOnScrollSvg();
+      animateOnScrollSvgCloud();
+      animateCardOnScroll();
+      animatedSvgLastSection();
+   }
 
-   animateMainSvgPath()
-   animateOnScrollSvg()
-   animateOnScrollSvgCloud()
-   animateCardOnScroll()
-   animatedSvgLastSection()
 
- 
 
    initTransitions();
 
-})
+});
 

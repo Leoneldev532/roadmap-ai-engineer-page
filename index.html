@@ -11,8 +11,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet" />
-        <link rel="stylesheet" href="./style.css">
-    
+    <link rel="stylesheet" href="./style.css">
+
     <style>
         /* Masquer le corps initialement pour éviter le flash de police (FOUT) */
         body {
@@ -24,17 +24,7 @@
             opacity: 1;
         }
     </style>
-    <script>
-        // Révéler la page une fois que les polices sont chargées
-        document.fonts.ready.then(function () {
-            document.body.classList.add('fonts-loaded');
-        });
 
-        // Fallback au cas où le chargement des polices échouerait
-        setTimeout(function () {
-            document.body.classList.add('fonts-loaded');
-        }, 3000);
-    </script>
 </head>
 
 <body class="bg-yellow-500">
@@ -43,16 +33,16 @@
         <section class="h-screen  section-1 fixed bg-[#F03A08] relative overflow-hidden w-full">
 
             <div class="h-full relative w-[100vw] ">
-                <div class="absolute left-[50%] top-0 h-[15vw]  image-scaling-hero scale-0 md:h-[10vw] left-[52%]  md:left-[60%] top-[24%] overflow-hidden  rounded-lg w-[20vw]  md:w-[15vw]
-            rounded-lg">
-                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content will-change-contents absolute left-0 top-0 scale-0 rotate-[25deg]"
-                        src="./images/a.webp" alt="" />
-                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content will-change-contents absolute left-0 top-0 scale-0 rotate-[25deg]"
-                        src="./images/b.webp" alt="" />
-                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content will-change-contents absolute left-0 top-0 scale-0 rotate-[25deg]"
-                        src="./images/c.webp" alt="" />
-                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content will-change-contents absolute left-0 top-0 scale-0 rotate-[25deg]"
-                        src="./images/d.webp" alt="" />
+                <div
+                    class="absolute left-[50%] top-0 h-[15vw] image-scaling-hero scale-0 md:h-[10vw] left-[52%] md:left-[60%] top-[24%] overflow-hidden rounded-lg w-[20vw] md:w-[15vw] rounded-lg">
+                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content absolute left-0 top-0 scale-0 rotate-[25deg]"
+                        src="./images/a.webp" alt="" loading="eager" fetchpriority="high" decoding="async" />
+                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content absolute left-0 top-0 scale-0 rotate-[25deg]"
+                        src="./images/b.webp" alt="" loading="lazy" decoding="async" />
+                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content absolute left-0 top-0 scale-0 rotate-[25deg]"
+                        src="./images/c.webp" alt="" loading="lazy" decoding="async" />
+                    <img class="h-full w-full rounded-lg object-cover image-scaling-hero-content absolute left-0 top-0 scale-0 rotate-[25deg]"
+                        src="./images/d.webp" alt="" loading="lazy" decoding="async" />
                 </div>
                 <h1
                     class="text-[10vw] md:text-[7vw] title-1 relative overflow-hidden h-[12vw] md:h-[8vw] left-[10%] md:left-[30%] top-[25%] text-white">
@@ -70,19 +60,14 @@
             </div>
 
             <div class="overflow-hidden absolute svg-1 w-full h-[80px] md:h-auto  bottom-0 left-0 ">
-                <svg width="1440" height="134" class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 134" fill="none" aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg">
+                <svg width="1440" height="134" class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 134"
+                    fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                     <path id="svg-1-end" class=""
                         d="M0 134.186C0 134.186 44.1023 -3.88791 111.5 1.68605C174.728 6.91512 205.5 134.186 205.5 134.186C205.5 134.186 233.341 1.03656 296 1.68605C358.222 2.33101 384.5 134.186 384.5 134.186C384.5 134.186 400.631 10.0413 459.5 1.68605C524.153 -7.49007 561.5 134.186 561.5 134.186C561.5 134.186 575.024 11.4821 633 1.68605C695.325 -8.84491 740.5 122.686 740.5 122.686C740.5 122.686 745.085 17.0418 794.5 1.68605C856.407 -17.5518 894.5 134.186 894.5 134.186C894.5 134.186 909.826 16.7094 962.5 1.68605C1023.29 -15.6534 1033.5 134.186 1033.5 134.186C1033.5 134.186 1056.29 -1.02399 1117.5 1.68605C1177.09 4.32468 1193.5 134.186 1193.5 134.186C1193.5 134.186 1196.09 10.2662 1252 1.68605C1310.44 -7.28278 1343 122.686 1343 122.686C1343 122.686 1352.5 -16.3139 1426.5 1.68605C1476.78 13.9159 1459.5 134.186 1459.5 134.186H1193.5H1033.5H894.5H561.5H384.5H205.5H0Z"
                         fill="#FFF1D3" />
 
                 </svg>
             </div>
-
-
-
-
-
 
 
         </section>
@@ -110,7 +95,7 @@
                     class="content absolute overflow-hidden top-0 md:mt-[10%]   flex-col left-0 w-full h-full flex items-start justify-start">
 
                     <div
-                        class="absolute line top-[0%] left-[40%] sm:left-1/2 -translate-x-1/2 w-full max-w-[800px] svg-animated-scroll">
+                        class="absolute line top-[2%] sm:top-[0%] left-[34%] sm:left-1/2 -translate-x-1/2 w-full max-w-[800px] svg-animated-scroll">
                         <svg width="500" height="480" viewBox="0 0 767 880" fill="none"
                             xmlns="http://www.w3.org/2000/svg" class="md:w-full 2xl:h-auto h-[50vw]" aria-hidden="true">
                             <path
@@ -193,9 +178,13 @@
                         <div class="card-explanation-wrapper rounded-lg  bg-[#F03A08] h-auto text-black w-[400px]">
                             <div
                                 class="w-full card-explanation h-full rounded-lg bg-white  relative gap-[24px] flex flex-col items-start justify-start p-[33px]">
-                                <span class="text-xs font-bold uppercase tracking-widest bg-[#F03A08] text-white px-2 py-1 rounded-sm w-fit">Étape 1</span>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-widest bg-[#F03A08] text-white px-2 py-1 rounded-sm w-fit">Step
+                                    1</span>
                                 <h2 class=" text-[24px] ">introduction</h2>
-                                <p class="text-[16px] font-normal ">Understand the core concepts of AI Engineering. This section covers Large Language Models (LLMs), tokenization, and essential terminology like Inference, Embeddings, and RAG.</p>
+                                <p class="text-[16px] font-normal ">Understand the core concepts of AI Engineering. This
+                                    section covers Large Language Models (LLMs), tokenization, and essential terminology
+                                    like Inference, Embeddings, and RAG.</p>
                                 <a class="w-auto " href="./seemore.html"> <button
                                         class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#F03A08] text-white">
                                         <span class="h-full text-[16px] ">see summary</span>
@@ -236,9 +225,14 @@
                             class="card-explanation-wrapper rounded-lg relative bg-[#7008F0]  h-auto text-black -left-[5%]    w-[400px]">
                             <div
                                 class="card-explanation rounded-lg relative gap-[24px] p-[33px] text-black bg-white flex flex-col items-start justify-start w-full">
-                                <span class="text-xs font-bold uppercase tracking-widest bg-[#7008F0] text-white px-2 py-1 rounded-sm w-fit">Étape 2</span>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-widest bg-[#7008F0] text-white px-2 py-1 rounded-sm w-fit">Step
+                                    2</span>
                                 <h2 class=" text-[24px] ">How it work</h2>
-                                <p class="text-[16px] font-normal ">Master the leading AI platforms and models. Learn to integrate APIs from OpenAI, Anthropic, and Google. This step focuses on practical implementation, technical considerations like token management, and effective pricing strategies.</p>
+                                <p class="text-[16px] font-normal ">Master the leading AI platforms and models. Learn to
+                                    integrate APIs from OpenAI, Anthropic, and Google. This step focuses on practical
+                                    implementation, technical considerations like token management, and effective
+                                    pricing strategies.</p>
                                 <a href="./seemore.html#llms">
                                     <button
                                         class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#7008F0] text-white">
@@ -354,9 +348,14 @@
 
                             <div
                                 class="card-explanation rounded-lg gap-[24px] p-[33px] text-black bg-white flex flex-col items-start justify-start">
-                                <span class="text-xs font-bold uppercase tracking-widest bg-[#00A8A8] text-white px-2 py-1 rounded-sm w-fit">Étape 3</span>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-widest bg-[#00A8A8] text-white px-2 py-1 rounded-sm w-fit">Step
+                                    3</span>
                                 <h2 class=" text-[24px] ">Prompt vs. Context Engineering</h2>
-                                <p class="text-[16px] font-normal ">AI Agents are autonomous systems that use Large Language Models as reasoning engines. They can plan, use tools via function calling, and interact with external environments to achieve complex, multi-step goals without constant human supervision.</p>
+                                <p class="text-[16px] font-normal ">AI Agents are autonomous systems that use Large
+                                    Language Models as reasoning engines. They can plan, use tools via function calling,
+                                    and interact with external environments to achieve complex, multi-step goals without
+                                    constant human supervision.</p>
                                 <a href="./seemore.html#agents"
                                     class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#00A8A8] text-white">
                                     <span class="h-full text-[16px] ">Explore
@@ -432,9 +431,14 @@
                         <div class="card-explanation-wrapper  rounded-lg bg-[#08992C] rounded-lg relative  w-[400px]">
                             <div
                                 class="card-explanation  rounded-lg  gap-[24px] -left-[5%]  p-[33px] text-black flex bg-white flex-col items-start justify-start w-full">
-                                <span class="text-xs font-bold uppercase tracking-widest bg-[#08992C] text-white px-2 py-1 rounded-sm w-fit">Étape 4</span>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-widest bg-[#08992C] text-white px-2 py-1 rounded-sm w-fit">Step
+                                    4</span>
                                 <h2 class=" text-[24px] ">embeddings & vector database</h2>
-                                <p class="text-[16px] font-normal ">Embeddings are numerical representations that capture semantic meaning. Vector databases store these embeddings efficiently, enabling ultra-fast similarity searches and allowing models to retrieve relevant context from massive datasets.</p>
+                                <p class="text-[16px] font-normal ">Embeddings are numerical representations that
+                                    capture semantic meaning. Vector databases store these embeddings efficiently,
+                                    enabling ultra-fast similarity searches and allowing models to retrieve relevant
+                                    context from massive datasets.</p>
                                 <a href="./seemore.html#embeddings"
                                     class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#08992C] text-white">
                                     <span class="h-full text-[16px] ">Learn
@@ -451,7 +455,9 @@
                         <div class="card-explanation-under bg-[#08992C] -top-[420px] -z-10 rotate-[4deg] rounded-lg relative gap-[24px] left-[2%]  p-[33px] text-black flex flex-col
                      items-start justify-start  w-[400px]">
                             <h2 class=" text-[24px] ">What are Embeddings</h2>
-                            <p class="text-[16px] font-normal ">Vector databases like Pinecone, Milvus, or Weaviate are purpose-built to store and query high-dimensional slices of data. They enable semantic search and long-term memory for LLM applications.</p>
+                            <p class="text-[16px] font-normal ">Vector databases like Pinecone, Milvus, or Weaviate are
+                                purpose-built to store and query high-dimensional slices of data. They enable semantic
+                                search and long-term memory for LLM applications.</p>
                             <a href="https://roadmap.sh/ai-engineer#embeddings-and-vector-databases" target="_blank"
                                 class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#08992C] text-white">
                                 <span class="h-full text-[16px] ">Explore
@@ -468,7 +474,9 @@
                         <div class="card-explanation-under bg-[#007bff] -top-[760px] -z-20 rotate-[10deg] rounded-lg relative gap-[24px] left-[5%]  p-[33px] text-black flex flex-col
                      items-start justify-start  w-[400px]">
                             <h2 class=" text-[24px] ">Vector Databases</h2>
-                            <p class="text-[16px] font-normal ">Retrieval-Augmented Generation (RAG) grounds LLMs in external knowledge. By connecting models to vector stores, you can build systems that answer questions about private or real-time data with high accuracy.</p>
+                            <p class="text-[16px] font-normal ">Retrieval-Augmented Generation (RAG) grounds LLMs in
+                                external knowledge. By connecting models to vector stores, you can build systems that
+                                answer questions about private or real-time data with high accuracy.</p>
                             <a href="https://roadmap.sh/ai-engineer#rag" target="_blank"
                                 class="text-sm px-[24px] flex gap-2  text-[16px] rounded-sm py-[12px] bg-[#007bff] text-white"><span>Begin
                                     now</span>
@@ -597,9 +605,14 @@
                         <div class="card-explanation-wrapper rounded-lg relative bg-[#F03A08] w-[400px]">
                             <div
                                 class="card-explanation rounded-lg gap-[24px] p-[33px] text-black flex flex-col bg-white items-start justify-start w-full">
-                                <span class="text-xs font-bold uppercase tracking-widest bg-[#F03A08] text-white px-2 py-1 rounded-sm w-fit">Étape 5</span>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-widest bg-[#F03A08] text-white px-2 py-1 rounded-sm w-fit">Étape
+                                    5</span>
                                 <h2 class=" text-[24px] ">Rags , Ai agent</h2>
-                                <p class="text-[16px] font-normal ">Building responsible AI requires strict adherence to safety standards. Learn to prevent prompt injections, detect model bias, and implement robust guardrails. Focus on alignment and governance to ensure AI benefits society while minimizing risks and ethical pitfalls.</p>
+                                <p class="text-[16px] font-normal ">Building responsible AI requires strict adherence to
+                                    safety standards. Learn to prevent prompt injections, detect model bias, and
+                                    implement robust guardrails. Focus on alignment and governance to ensure AI benefits
+                                    society while minimizing risks and ethical pitfalls.</p>
                                 <a href="./seemore.html#safety"
                                     class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#F03A08] text-white">
                                     <span class="h-full text-[16px] ">Explore
@@ -624,9 +637,14 @@
                         <div class="card-explanation-wrapper rounded-lg relative bg-[#970D7B] w-[400px]">
                             <div
                                 class="card-explanation rounded-lg gap-[24px] p-[33px] text-black flex flex-col bg-white items-start justify-start w-full">
-                                <span class="text-xs font-bold uppercase tracking-widest bg-[#970D7B] text-white px-2 py-1 rounded-sm w-fit">Étape 6</span>
+                                <span
+                                    class="text-xs font-bold uppercase tracking-widest bg-[#970D7B] text-white px-2 py-1 rounded-sm w-fit">Étape
+                                    6</span>
                                 <h2 class=" text-[24px] ">AI Safety and Ethics</h2>
-                                <p class="text-[16px] font-normal ">You've reached the advanced stages of the AI Engineer Roadmap. From foundations and LLM platforms to autonomous agents and complex RAG architectures, you now have the blueprint to master the AI ecosystem in 2026.</p>
+                                <p class="text-[16px] font-normal ">You've reached the advanced stages of the AI
+                                    Engineer Roadmap. From foundations and LLM platforms to autonomous agents and
+                                    complex RAG architectures, you now have the blueprint to master the AI ecosystem in
+                                    2026.</p>
                                 <a href="./seemore.html"
                                     class="text-sm cursor-pointer px-[24px] flex gap-2 justify-center  text-[16px] rounded-sm py-[12px] bg-[#970D7B] text-white">
                                     <span class="h-full text-[16px] ">View Detail
@@ -651,7 +669,8 @@
 
         </section>
 
-        <div class="md:h-screen h-[94vh]  relative overflow-hidden  last-section  -top-[5%] lg:-top-[3.90%] w-full flex justify-center items-center">
+        <div
+            class="md:h-screen h-[94vh]  relative overflow-hidden  last-section  -top-[5%] lg:-top-[3.90%] w-full flex justify-center items-center">
 
 
             <div class="w-full h-full absolute   md:left-[10%] -left-[15%] -top-[0%] z-10">
@@ -660,9 +679,10 @@
                     class="left-[56%] md:left-[44%] svg-animated top-[12%] md:top-1/18 h-[50vw] md:h-[50vw] h-[18vw] -translate-x-1/2 absolute"
                     viewBox="0 0 651 710" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-                    
 
-                    <circle id="svg-animated-end" class="circle-svg-animated" cx="275" cy="275" r="275" fill="#8ED462" />
+
+                    <circle id="svg-animated-end" class="circle-svg-animated" cx="275" cy="275" r="275"
+                        fill="#8ED462" />
 
 
                     <path id="svg-animated-start"
@@ -674,11 +694,11 @@
                 </svg>
 
 
-        
+
 
             </div>
 
-         <h2 class="z-30 text-center absolute z-20 last-text">
+            <h2 class="z-30 text-center text-balance mb-8 md:mb-0 absolute z-20 last-text">
                 <span class="md:text-8xl text-4xl font-bold">Shape the </span>
                 <span class="md:text-8xl text-4xl font-bold"> Future of AI</span>
 

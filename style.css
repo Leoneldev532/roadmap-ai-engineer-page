@@ -44,6 +44,12 @@ h6 {
     font-weight: 580;
 }
 
+ @media (max-width: 800px) {
+        .image-scaling-hero {
+            display: none; 
+        }
+    }
+
 @media (min-width: 768px) {
     .title-1 {
         flex-direction: row;

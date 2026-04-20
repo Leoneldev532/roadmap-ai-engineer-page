@@ -1,12 +1,12 @@
-    
+
 
 if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+   history.scrollRestoration = 'manual';
 }
 window.scrollTo(0, 0);
 
 window.addEventListener("beforeunload", function () {
-    window.scrollTo(0, 0);
+   window.scrollTo(0, 0);
 });
 
 
@@ -45,94 +45,102 @@ window.addEventListener("DOMContentLoaded", () => {
    lenis.stop();
 
 
- const imgSummarySection = document.querySelectorAll(".img-summary-section");
+   const imgSummarySection = document.querySelectorAll(".img-summary-section");
 
- 
+
    const animateCardImage = () => {
+      if (imgSummarySection.length === 0) return;
       imgSummarySection.forEach((item, index) => {
-   const img = item.querySelector("img");
- 
-   const tl = gsap.timeline({
-      scrollTrigger: {
-         trigger: item,
-         start: "top 70%",
-         end: "+=450",
-         scrub: true,
-      },
-   });
+         const img = item.querySelector("img");
 
-   tl.from(item, {
-      y: 60,
-      x: index % 2 == 0 ? 15 : -15,
-      rotate: index % 2 == 0 ? -8 : 8,
-      duration: 4,
-      ease: "sine",
-      transformOrigin: index % 2 == 0 ? "top right" : "top left",
-   }).fromTo(img, 
-   { scale: 1.2 },   
-   { scale: 1, ease: "sine" , duration:4 },
-"<");
-});
+         const tl = gsap.timeline({
+            scrollTrigger: {
+               trigger: item,
+               start: "top 70%",
+               end: "+=450",
+               scrub: true,
+            },
+         });
+
+         tl.from(item, {
+            y: 60,
+            x: index % 2 == 0 ? 15 : -15,
+            rotate: index % 2 == 0 ? -8 : 8,
+            duration: 4,
+            ease: "sine",
+            transformOrigin: index % 2 == 0 ? "top right" : "top left",
+         }).fromTo(img,
+            { scale: 1.2 },
+            { scale: 1, ease: "sine", duration: 4 },
+            "<");
+      });
    }
 
 
-  animateCardImage()
- let mm = gsap.matchMedia();
+   animateCardImage()
+   let mm = gsap.matchMedia();
 
-  const animateTitleHero = () => {
+   const animateTitleHero = () => {
+      if (!document.querySelector(".description-hero-section")) return;
 
-   const rl =  gsap.timeline({
-      scrollTrigger: {
-         trigger: ".description-hero-section",
-         start: "top 70%",
-         end: "+=450",
-         scrub: true,
-         
-      },
-   });
-mm.add("(min-width: 800px)", () => {
-   rl.to(".title-hero",{
-      scale:0.8,
-      y:340,
-      zIndex:0,
-      opacity:0.4,
-      duration:4,
-      ease:"sine",
-      transformOrigin: "top right",
-   })
+      const rl = gsap.timeline({
+         scrollTrigger: {
+            trigger: ".description-hero-section",
+            start: "top 70%",
+            end: "+=450",
+            scrub: true,
+
+         },
+      });
+      mm.add("(min-width: 800px)", () => {
+         rl.to(".title-hero", {
+            scale: 0.8,
+            y: 340,
+            zIndex: 0,
+            opacity: 0.4,
+            duration: 4,
+            ease: "sine",
+            transformOrigin: "top right",
+         })
+      })
+
+      mm.add("(max-width: 800px)", () => {
+         rl.to(".title-hero", {
+            scale: 0.8,
+            y: 140,
+            zIndex: 0,
+            opacity: 0.4,
+            duration: 4,
+            ease: "sine",
+            transformOrigin: "top right",
+         })
+      })
+
+
+      if (document.querySelector(".summary-section")) {
+         rl.to(".summary-section", {
+            y: -280,
+            duration: 4,
+            ease: "sine",
+            transformOrigin: "top right",
+         }, "<")
+      }
+
+
+
+
+
+
+   }
+
+   if (document.fonts) {
+      document.fonts.ready.then(() => {
+         animateCardImage();
+         animateTitleHero();
+      });
+   } else {
+      animateCardImage();
+      animateTitleHero();
+   }
+
 })
-
-mm.add("(max-width: 800px)", () => {
-   rl.to(".title-hero",{
-      scale:0.8,
-      y:140,
-      zIndex:0,
-      opacity:0.4,
-      duration:4,
-      ease:"sine",
-      transformOrigin: "top right",
-   })
-})
-
-
-   rl.to(".summary-section",{
-      y:-280,
-      duration:4,
-      ease:"sine",
-      transformOrigin: "top right",
-   },"<")
- 
-  
-
- 
-   
-
-  }
-
-  animateTitleHero()
-   
-
-
-
-})
-
