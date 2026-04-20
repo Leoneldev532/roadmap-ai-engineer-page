@@ -58,10 +58,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
    gsap.registerPlugin(SplitText, DrawSVGPlugin, MorphSVGPlugin, MotionPathPlugin);
 
-   lenis.stop();
-
-
    const title1All = gsap.utils.toArray(".title-1");
+   if (title1All.length > 0) {
+      lenis.stop();
+   }
    const imgScalingHeroContent = gsap.utils.toArray(".image-scaling-hero-content");
    const title2 = document.querySelector(".title-2");
    let title2Chars = null;

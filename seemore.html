@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="./style.css">
 
     <style>
+        /* Hide body initially to avoid flash of unstyled text (FOUT) */
         body {
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
@@ -24,10 +25,12 @@
         }
     </style>
     <script>
+        // Reveal page once fonts are loaded
         document.fonts.ready.then(function () {
             document.body.classList.add('fonts-loaded');
         });
 
+        // Fallback in case font loading fails
         setTimeout(function () {
             document.body.classList.add('fonts-loaded');
         }, 3000);
@@ -42,7 +45,7 @@
 
             <div class="w-full top-0 absolute  z-30 pointer-events-none h-full">
 
-                <div class="h-screen flex  relative  overflow-hidden   md:p-8 justify-end items-end w-full">
+                <div class="h-screen flex  relative  overflow-hidden-hidden   md:p-8 jsutify-end items-end w-full">
 
 
                     <h2
@@ -396,7 +399,7 @@
                         <!-- Section 1: Foundations -->
                         <div id="foundations" class="flex border-b border-neutral-500/50 p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">1. introduction</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">1. introduction</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">Mathematics & Python</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -411,7 +414,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800" alt="AI introduction" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&q=80&w=800" alt="AI introduction" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -419,7 +422,7 @@
                         <!-- Section 2: LLMs & Platforms -->
                         <div id="llms" class="flex border-b border-neutral-500/50 p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">2. LLMs & Platforms</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">2. LLMs & Platforms</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">APIs & Pre-trained Models</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -430,7 +433,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="LLM Platforms" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="LLM Platforms" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -438,7 +441,7 @@
                         <!-- Section 3: Prompt Engineering -->
                         <div id="prompting" class="flex border-b border-neutral-500/50 p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">3. Prompt Engineering</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">3. Prompt Engineering</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">Prompt vs. Context</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -449,7 +452,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" alt="Prompt Engineering" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800" alt="Prompt Engineering" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -457,7 +460,7 @@
                         <!-- Section 4: Embeddings & Vector DBs -->
                         <div id="embeddings" class="flex border-b border-neutral-500/50 p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">4. Embeddings & Vector Databases</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">4. Embeddings & Vector Databases</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">Semantic Representation</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -468,7 +471,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=800" alt="Embeddings" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=800" alt="Embeddings" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -476,7 +479,7 @@
                         <!-- Section 5: RAG -->
                         <div id="rag" class="flex border-b border-neutral-500/50 p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">5. RAG (Retrieval-Augmented Generation)</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">5. RAG (Retrieval-Augmented Generation)</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">Knowledge Grounding</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -487,7 +490,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800" alt="RAG Systems" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=800" alt="RAG Systems" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -495,7 +498,7 @@
                         <!-- Section 6: AI Agents -->
                         <div id="agents" class="flex border-b border-neutral-500/50 p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">6. AI Agents</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">6. AI Agents</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">Reasoning & Tool Use</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -506,7 +509,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="AI Agents" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800" alt="AI Agents" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
@@ -514,7 +517,7 @@
                         <!-- Section 7: AI Safety and Ethics -->
                         <div id="safety" class="flex p-8 lg:p-24 flex-col-reverse lg:flex-row gap-3 lg:gap-20">
                             <div class="flex flex-col w-full lg:w-1/2 gap-8">
-                                <h2 class="text-2xl md:text-3xl font-bold text-balance">7. AI Safety and Ethics</h2>
+                                <h2 class="text-lg md:text-3xl font-bold text-balance">7. AI Safety and Ethics</h2>
                                 <div class="space-y-4">
                                     <h3 class="text-xl font-semibold opacity-90">Responsibility & Security</h3>
                                     <p class="text-lg leading-relaxed opacity-80 font-raleway">
@@ -525,7 +528,7 @@
                             </div>
                             <div class="w-full lg:w-1/2 h-full">
                                 <div class="overflow-hidden rounded-3xl w-full img-summary-section h-[300px] md:h-[400px]">
-                                    <img loading=" lazy\ src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" alt="AI Safety" class="object-cover w-full h-full  " />
+                                    <img loading="lazy" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&q=80&w=800" alt="AI Safety" class="object-cover w-full h-full  " />
                                 </div>
                             </div>
                         </div>
