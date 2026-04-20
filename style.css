@@ -17,12 +17,14 @@
     font-family: "korosu";
     src: url("./font/Saprona-Medium.ttf");
     font-weight: 400;
+    font-display: block;
 }
 
 @font-face {
     font-family: "korosu";
     src: url("./font/Saprona-Light.ttf");
     font-weight: 300;
+    font-display: block;
 }
 
 p,

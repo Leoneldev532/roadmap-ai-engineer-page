@@ -12,6 +12,29 @@
   
 
     <link rel="stylesheet" href="./style.css">
+
+    <style>
+        /* Masquer le corps initialement pour éviter le flash de police (FOUT) */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        body.fonts-loaded {
+            opacity: 1;
+        }
+    </style>
+    <script>
+        // Révéler la page une fois que les polices sont chargées
+        document.fonts.ready.then(function () {
+            document.body.classList.add('fonts-loaded');
+        });
+
+        // Fallback au cas où le chargement des polices échouerait
+        setTimeout(function () {
+            document.body.classList.add('fonts-loaded');
+        }, 3000);
+    </script>
 </head>
 
 <body class="bg-yellow-500 ">
