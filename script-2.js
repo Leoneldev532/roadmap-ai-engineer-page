@@ -1,10 +1,20 @@
     
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+window.addEventListener("beforeunload", function () {
+    window.scrollTo(0, 0);
+});
+
+
 window.addEventListener("DOMContentLoaded", () => {
 
-
-   window.scrollTo(0, 0);
-   history.scrollRestoration = "manual";
+   setTimeout(() => {
+      window.scrollTo(0, 0);
+   }, 10);
 
    const lenis = new Lenis({
       duration: 3,
@@ -17,12 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
       touchMultiplier: 2,
    })
 
-
-   function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-   }
-   requestAnimationFrame(raf);
 
 
 
@@ -120,7 +124,7 @@ mm.add("(max-width: 800px)", () => {
  
   
 
-
+ 
    
 
   }

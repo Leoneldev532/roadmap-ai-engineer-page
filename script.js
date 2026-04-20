@@ -1,10 +1,20 @@
 
 
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+window.addEventListener("beforeunload", function () {
+    window.scrollTo(0, 0);
+});
+
 window.addEventListener("DOMContentLoaded", () => {
 
+   setTimeout(() => {
+      window.scrollTo(0, 0);
+   }, 10);
 
-   window.scrollTo(0, 0);
-   history.scrollRestoration = "manual";
 
    const lenis = new Lenis({
       duration: 3,
@@ -17,12 +27,6 @@ window.addEventListener("DOMContentLoaded", () => {
       touchMultiplier: 2,
    })
 
-
-   function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-   }
-   requestAnimationFrame(raf);
 
 
 
@@ -58,6 +62,7 @@ window.addEventListener("DOMContentLoaded", () => {
    let zl = gsap.timeline({});
    let yl = gsap.timeline({});
    let il = gsap.timeline({});
+   let mm = gsap.matchMedia();
 
 
 
@@ -184,7 +189,6 @@ window.addEventListener("DOMContentLoaded", () => {
                start: "top 60%",
                end: "+=100",
                scrub: 1,
-               markers: false,
                toggleActions: "play none none reverse"
             }
          })
@@ -212,36 +216,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
    }
 
-   const lastTextAnimation = () => {
-      const lastText = document.querySelectorAll(".last-text");
-      lastText.forEach((text) => {
-         const textChars = new SplitText(text, { type: "words" }).words;
-         yl.from(textChars, {
-            opacity: 0,
-            y: "150%",
-            duration: 0.5,
-            ease: "power2.out",
-            stagger: 0.05,
-            scrollTrigger: {
-               trigger: text,
-               start: "top 60%",
-               end: "+=100",
-               scrub: true,
-               markers: false,
-               toggleActions: "play none none reverse"
-            }
-         })
-      })
-   }
 
     const animatedSvgLastSection = () => {
+      mm.add({
+         isDesktop: "(min-width: 801px)",
+         isMobile: "(max-width: 800px)"
+      }, (context) => {
+         let { isDesktop } = context.conditions;
+
+         const lastText = document.querySelector(".last-text");
+         const textChars = new SplitText(lastText, { type: "words" }).words;
+         gsap.set(textChars, { autoAlpha: 0, y: "140%" });
+
       yl = gsap.timeline({
          scrollTrigger: {
             trigger: ".last-section",
-            start: "top top",
-            markers: true,
+            start: "top 50%",
+            end: "+=350",
             pin: true,
-
+            scrub: true
          }
       })
 
@@ -253,27 +246,32 @@ window.addEventListener("DOMContentLoaded", () => {
          duration: 1
       }).to(".svg-animated", {
          scale:10,
+         ease: "power4.inOut",
+         duration: 3,
            transformOrigin: "center center", 
-                duration: 3,
-         ease: "power2.inOut",
        
       },"<")
 
-      yl.to(".last-section",{
-         backgroundColor:"#F03A08",
-         duration:1,
-         onComplete:()=>{
-            lastTextAnimation()
-         }
-      },"<")    
+
+        yl.to(textChars, {
+   autoAlpha: 1,
+   y: 0,
+   duration: 3,         
+   ease: "sine",         
+   stagger: {
+      each: 0.1,
+      from: "start"
+   }
+}, ">");
+      });
    }
 
-   const animimateCardOnScroll = () => {
-      const cardExplinationWrapper = document.querySelectorAll(".card-explination-wrapper");
-      const cardExplinationUnder = document.querySelectorAll(".card-explination-under");
+   const animateCardOnScroll = () => {
+      const cardExplanationWrapper = document.querySelectorAll(".card-explanation-wrapper");
+      const cardExplanationUnder = document.querySelectorAll(".card-explanation-under");
 
-      cardExplinationWrapper.forEach((card) => {
-         const cardExplination = card.querySelector(".card-explination");
+      cardExplanationWrapper.forEach((card) => {
+         const cardExplanation = card.querySelector(".card-explanation");
 
          zl = gsap.timeline({
             scrollTrigger: {
@@ -290,7 +288,7 @@ window.addEventListener("DOMContentLoaded", () => {
             duration: 0.3,
             ease: "sine.out",
          })
-            .from(cardExplination, {
+            .from(cardExplanation, {
                scale: 0.5,
                delay: 0.2,
                duration: 0.3,
@@ -298,7 +296,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }, "<");
       });
 
-      cardExplinationUnder.forEach((item) => {
+      cardExplanationUnder.forEach((item) => {
          gsap.from(item, {
             opacity: 0,
             rotate: -15,
@@ -307,9 +305,6 @@ window.addEventListener("DOMContentLoaded", () => {
                start: "top 60%",
                end: "+=100",
                scrub: 1,
-               onComplete:()=>{
-                  animatedSvgLastSection()
-               }
             },
          });
       });
@@ -392,7 +387,7 @@ window.addEventListener("DOMContentLoaded", () => {
    animateMainSvgPath()
    animateOnScrollSvg()
    animateOnScrollSvgCloud()
-   animimateCardOnScroll()
+   animateCardOnScroll()
    animatedSvgLastSection()
 
  
