@@ -1,0 +1,91 @@
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    ::before,
+    ::after {
+        animation-delay: -1ms !important;
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+@font-face {
+    font-family: "korosu";
+    src: url("./font/Saprona-Medium.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "korosu";
+    src: url("./font/Saprona-Light.ttf");
+    font-weight: 300;
+}
+
+p,
+button,
+span {
+    font-family: "korosu";
+    font-weight: 400;
+}
+
+h2,
+h3,
+h4,
+h5,
+.title-1,
+h6 {
+    font-family: "korosu";
+    font-weight: 580;
+}
+
+@media (min-width: 768px) {
+    .title-1 {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    html {
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    html::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari */
+    }
+
+        .caracter-title div {
+            mix-blend-mode: exclusion;
+        }
+
+        .reveal-slide {
+            will-change: contents;
+        }
+
+        .slide-card {
+            clip-path: inset(45% 42% 34% 41%);
+            /* inset(21% 19% 16% 17%) */
+        }
+
+        .card>img {
+            transition: all 0.5s ease;
+        }
+
+        .card:hover img {
+            scale: 1.04
+        }
+
+        .svg-bg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        img{
+             transform: scale(1) ;
+        }
+}
